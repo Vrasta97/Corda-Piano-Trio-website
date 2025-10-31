@@ -1,0 +1,50 @@
+Postavi ovaj stajl i za telefone i manje uredjaje 
+
+.masthead-text-wrapper {
+  position: absolute;
+  right: 2rem;
+  top: 4rem;
+  text-align: right;
+}
+
+kursor na corda piano trio headeru done ++
+dal trebaju slike da se otvaraju u drugom tabu done ++
+Umetsto gallery nek bude photos videos, done ++
+navigacija, manji razmak izmedju sekcija done ++
+malo veca naslovna  done ++
+videos 4 yt snimka a shorts sa desne strane done ++
+new album malo nize done ++ 
+Kad izadje na spotify ubaci pod Audio a za sad yt videos done ++
+contact done ++
+header da bude bordo na hover i done ++
+linkovi na contactu done ++
+press done++
+schedule page done ++
+about da bude slika levo text desno done++
+bez slike about na mobile done ++
+popravi glavnu sliku na iphone 12 mora malo manja da bude done++
+
+slike da se otvaraju u new tabu i da se smanje u webp
+
+proveri da nije nesto omaseno u schedule page
+
+eng srb
+
+postavi em tagove
+
+postavi lazy load
+<img src="images/photo1.webp" alt="..." loading="lazy">
+
+
+
+email setup moraju oni isto da nameste
+boja je bila 64a19d
+about-band-element
+
+Upload it to your site’s root directory (https://yourdomain.com/sitemap.xml).
+
+
+✅ f. Set up Google Search Console https://search.google.com/search-console/
+
+
+✅ g. Set up Google Analytics https://analytics.google.com/
