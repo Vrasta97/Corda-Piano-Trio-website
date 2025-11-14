@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Contact form submission
   (function () {
     emailjs.init({
-      publicKey: "t3FmayB-E2DCLgzEs",
+      publicKey: "0-SNykgWiXCvytVdm",
     });
   })();
 
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       };
 
       emailjs
-        .send("service_2ljqyzp", "template_gz9ohkq", params)
+        .send("service_83dl7ai", "template_eywx3bo", params)
         .then(() => {
           alert("✅ Email sent successfully!");
           document.getElementById("contactFormLocal").reset();

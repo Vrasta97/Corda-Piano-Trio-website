@@ -23,28 +23,32 @@ schedule page done ++
 about da bude slika levo text desno done++
 bez slike about na mobile done ++
 popravi glavnu sliku na iphone 12 mora malo manja da bude done++
-
-slike da se otvaraju u new tabu i da se smanje u webp
-
-proveri da nije nesto omaseno u schedule page
+email setup moraju oni isto da nameste ++
+slike da se otvaraju u new tabu i da se smanje u webp ++
+proveri da nije nesto omaseno u schedule page ++
+postavi lazy load ++
 
 eng srb
 
 postavi em tagove
 
-postavi lazy load
-<img src="images/photo1.webp" alt="..." loading="lazy">
 
-
-
-email setup moraju oni isto da nameste
 boja je bila 64a19d
 about-band-element
 
-Upload it to your site’s root directory (https://yourdomain.com/sitemap.xml).
+Upload it to your site’s root directory (https://yourdomain.com/sitemap.xml). ++
 
 
-✅ f. Set up Google Search Console https://search.google.com/search-console/
+✅ f. Set up Google Search Console https://search.google.com/search-console/ ++
 
 
-✅ g. Set up Google Analytics https://analytics.google.com/
+✅ g. Set up Google Analytics https://analytics.google.com/  
+
+User:
+cordapia
+Pass:
+[N7h18HbkSh9P]
+
+template_eywx3bo
+service_83dl7ai
+0-SNykgWiXCvytVdm
