@@ -1,4 +1,13 @@
 @charset "UTF-8";
+/* Webfont: LovelyMay - use WOFF2 for web delivery. Replace .woff2 after conversion/subsetting. */
+@font-face {
+  font-family: "LovelyMay";
+  src: url("/fonts/LovelyMayScript.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* avoid FOIT */
+}
+
 /*!
 * Start Bootstrap - Grayscale v7.0.6 (https://startbootstrap.com/theme/grayscale)
 * Copyright 2013-2023 Start Bootstrap
@@ -11813,8 +11822,8 @@ body {
     height: auto;
     min-height: 35rem;
     padding: 15rem 0;
-    background: url("../images/mastHeadImageMax400.webp") no-repeat center center
-      scroll;
+    background: url("../images/mastHeadImageMax400.webp") no-repeat center
+      center scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -11848,7 +11857,7 @@ body {
 .text-masthead {
   color: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
   /* font-family: "Comforter", cursive; */
-  font-family: "LovelyMayScript", sans-serif;
+  font-family: "LovelyMay", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 2.5rem;
@@ -11921,7 +11930,8 @@ body {
   width: 100%;
   height: auto;
   padding: 5rem 0;
-  background: url("../images/bioVladaMobile.webp") no-repeat center center scroll;
+  background: url("../images/bioVladaMobile.webp") no-repeat center center
+    scroll;
   /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.webp"); */
   background-position: center;
   background-repeat: no-repeat;

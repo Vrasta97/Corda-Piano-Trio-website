@@ -94,28 +94,47 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //     page.render(renderContext);
   //   });
   // });
-  const url = "../pdf/CDstrana.pdf"; // 🔹 replace with your PDF file path or URL
+  const url = "../pdf/CDstrana.pdf"; // PDF file path or URL
 
   const container = document.getElementById("pdf-container");
 
-  // Load the PDF
+  // Load the PDF but render lazily to save CPU and memory
   pdfjsLib
     .getDocument(url)
     .promise.then((pdf) => {
       console.log(`PDF loaded (${pdf.numPages} pages)`);
 
-      // Loop through each page
-      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-        pdf.getPage(pageNumber).then((page) => {
-          const viewport = page.getViewport({ scale: 3 }); // Adjust scale as needed
+      const scale = 3; // lower scale to reduce canvas size; adjust as needed
 
-          const canvas = document.createElement("canvas");
+      // Helper to render a single page into a canvas (id: canvas-page-<n>)
+      const rendered = new Set();
+
+      function renderPage(pageNumber) {
+        if (rendered.has(pageNumber)) return;
+        rendered.add(pageNumber);
+
+        pdf.getPage(pageNumber).then((page) => {
+          const viewport = page.getViewport({ scale });
+
+          let canvas = document.getElementById(`canvas-page-${pageNumber}`);
+          if (!canvas) {
+            canvas = document.createElement("canvas");
+            canvas.id = `canvas-page-${pageNumber}`;
+          }
+
           const context = canvas.getContext("2d");
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
-          // Append canvas before rendering (for smoother loading)
-          container.appendChild(canvas);
+          // Replace placeholder with canvas (if present)
+          const placeholder = document.getElementById(
+            `placeholder-page-${pageNumber}`
+          );
+          if (placeholder && placeholder.parentNode) {
+            placeholder.parentNode.replaceChild(canvas, placeholder);
+          } else {
+            container.appendChild(canvas);
+          }
 
           const renderContext = {
             canvasContext: context,
@@ -123,6 +142,41 @@ window.addEventListener("DOMContentLoaded", (event) => {
           };
           page.render(renderContext);
         });
+      }
+
+      // Create placeholders for each page. Render first page immediately.
+      const observerOptions = {
+        root: null,
+        rootMargin: "200px",
+        threshold: 0.05,
+      };
+
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const p = parseInt(entry.target.dataset.pagenumber, 10);
+            renderPage(p);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+        const placeholder = document.createElement("div");
+        placeholder.id = `placeholder-page-${pageNumber}`;
+        placeholder.className = "pdf-page-placeholder";
+        placeholder.style.width = "100%";
+        placeholder.style.minHeight = "200px"; // visual space before render
+        placeholder.dataset.pagenumber = pageNumber;
+        container.appendChild(placeholder);
+
+        if (pageNumber === 1) {
+          // render first page immediately for faster perceived load
+          renderPage(1);
+        } else {
+          // lazy render when placeholder comes into view
+          io.observe(placeholder);
+        }
       }
     })
     .catch((err) => {

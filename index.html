@@ -13,8 +13,8 @@
       property="og:description"
       content="Official website of the Corda Piano Trio."
     />
-    <!-- <meta property="og:image" content="https://yourdomain.com/images/cover.webp">
-<meta property="og:url" content="https://yourdomain.com"> -->
+    <!-- <meta property="og:image" content="https://yourdomain.com/images/cover.webp"> -->
+    <meta property="og:url" content="https://cordapianotrio.com" />
     <title>Corda Piano Trio</title>
     <link rel="icon" type="image/x-icon" href="assets/music-note.svg" />
     <!-- <link rel="icon" href="path/to/your/favicon.png" type="image/png"> -->
@@ -38,6 +38,14 @@
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- Preload webfont (replace with .woff2 after conversion) -->
+    <link
+      rel="preload"
+      href="fonts/LovelyMayScript.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   </head>
   <body id="page-top">
     <!-- Navigation-->
@@ -841,9 +849,9 @@
           <iframe
             data-testid="embed-iframe"
             style="border-radius: 12px"
-            src="https://open.spotify.com/embed/album/4BSbtYkx5RmQYmoRCrRhNt?utm_source=generator"
+            src="https://open.spotify.com/embed/album/1l0zOxG7baghmuqrxe5QmM?utm_source=generator"
             width="100%"
-            height="352"
+            height="475"
             frameborder="0"
             allowfullscreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -1066,8 +1074,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Core theme JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <!-- Load pdf.js deferred so it doesn't block initial parsing; scripts.js will run after pdf.js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"
+      defer
+    ></script>
+    <script src="js/scripts.js" defer></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
